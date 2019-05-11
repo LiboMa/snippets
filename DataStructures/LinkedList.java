@@ -46,7 +46,7 @@ class LinkedList
 
     public List getData(){
         Node temp = head;
-        List list = new ArrayList();
+        List<Integer> list = new ArrayList<Integer>();
         while (temp != null){
 
             list.add(temp.data);
