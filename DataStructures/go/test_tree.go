@@ -28,6 +28,7 @@ type Node struct {
 //	return n
 //}
 
+//func (node *Node) NewNode(data int) *Node {
 func NewNode(data int) *Node {
 
 	root := &Node{data, nil, nil}
@@ -35,11 +36,9 @@ func NewNode(data int) *Node {
 	return root
 }
 
-type Tree interface {
-	NewNode(data int) Node
-	AddNode(n Node, data int) Node
-}
+//func (node *Node) AddNode(n *Node, data int) *Node {
 
+// Method 1 Using func instead OO
 func AddNode(n *Node, data int) *Node {
 
 	if n.data != 0 {
@@ -57,6 +56,33 @@ func AddNode(n *Node, data int) *Node {
 			}
 		}
 
+	} else {
+		n.data = data
+	}
+	return n
+
+}
+
+// Method Using OO to add value
+func (n *Node) Add(data int) *Node {
+
+	if n.data != 0 {
+
+		if n.data > data {
+
+			if n.left == nil {
+				n.left = NewNode(data)
+			} else {
+				n.left = n.left.Add(data)
+			}
+
+		} else if n.data < data {
+			if n.right == nil {
+				n.right = NewNode(data)
+			} else {
+				n.right = n.right.Add(data)
+			}
+		}
 	} else {
 		n.data = data
 	}
@@ -85,19 +111,43 @@ func PreorderRecursive(root *Node) {
 	PreorderRecursive(root.left)
 }
 
+func PostorderRecursive(root *Node) {
+
+	if root == nil {
+		return
+	}
+	//PostorderRecursive(root.right)
+	//PostorderRecursive(root.left)
+	fmt.Printf("%d ", root.data)
+}
+
 func main() {
-	tree := NewNode(0)
-	tree = AddNode(tree, 1)
-	tree = AddNode(tree, 2)
-	tree = AddNode(tree, 4)
-	tree = AddNode(tree, 10)
-	tree = AddNode(tree, 6)
-	tree = AddNode(tree, 80)
-	tree = AddNode(tree, 8)
-	tree = AddNode(tree, 9)
+	//var tree I = Node{"0", nil, nil}
+
+	//tree.NewNode(1)
+	//fmt.Println("tree", tree)
+	//var i I
+
+	tree := NewNode(1)
+	//i = AddNode(tree, 13)
+	//	tree = AddNode(tree, 10)
+	//	tree = AddNode(tree, 12)
+	//	tree = AddNode(tree, 20)
+	//	tree = AddNode(tree, 40)
+	//	tree = AddNode(tree, 11)
+	//	tree = AddNode(tree, 6)
+	//	tree = AddNode(tree, 80)
+	//	tree = AddNode(tree, 30)
+	//	tree = AddNode(tree, 90)
+	tree.Add(10)
+	tree.Add(12)
+	tree.Add(0)
+	tree.Add(30)
+	tree.Add(99)
 	fmt.Println("tree: ", tree)
 	//fmt.Println("tree: ", tree.right)
 	InorderRecursive(tree)
 	//PreorderRecursive(tree)
+	//PostorderRecursive(tree)
 
 }
