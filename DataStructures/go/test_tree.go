@@ -5,6 +5,11 @@ import (
 	//	"github.com/disiqueira/gotree"
 )
 
+type I interface {
+	NewNode(data int) Node
+	AddNode(n *Node, data int) Node
+}
+
 type Node struct {
 	data  int
 	left  *Node
@@ -28,6 +33,7 @@ type Node struct {
 //	return n
 //}
 
+//func (node *Node) NewNode(data int) *Node {
 func NewNode(data int) *Node {
 
 	root := &Node{data, nil, nil}
@@ -35,11 +41,7 @@ func NewNode(data int) *Node {
 	return root
 }
 
-type Tree interface {
-	NewNode(data int) Node
-	AddNode(n Node, data int) Node
-}
-
+//func (node *Node) AddNode(n *Node, data int) *Node {
 func AddNode(n *Node, data int) *Node {
 
 	if n.data != 0 {
@@ -85,19 +87,39 @@ func PreorderRecursive(root *Node) {
 	PreorderRecursive(root.left)
 }
 
+func PostorderRecursive(root *Node) {
+
+	if root == nil {
+		return
+	}
+
+	//PostorderRecursive(root.right)
+	//PostorderRecursive(root.left)
+	fmt.Printf("%d ", root.data)
+}
+
 func main() {
-	tree := NewNode(0)
-	tree = AddNode(tree, 1)
-	tree = AddNode(tree, 2)
-	tree = AddNode(tree, 4)
+	//var tree I = Node{"0", nil, nil}
+
+	//tree.NewNode(1)
+	//fmt.Println("tree", tree)
+	//var i I
+
+	tree := NewNode(1)
+	//i = AddNode(tree, 13)
 	tree = AddNode(tree, 10)
+	tree = AddNode(tree, 12)
+	tree = AddNode(tree, 20)
+	tree = AddNode(tree, 40)
+	tree = AddNode(tree, 11)
 	tree = AddNode(tree, 6)
 	tree = AddNode(tree, 80)
-	tree = AddNode(tree, 8)
-	tree = AddNode(tree, 9)
+	tree = AddNode(tree, 30)
+	tree = AddNode(tree, 90)
 	fmt.Println("tree: ", tree)
 	//fmt.Println("tree: ", tree.right)
 	InorderRecursive(tree)
 	//PreorderRecursive(tree)
+	//PostorderRecursive(tree)
 
 }
