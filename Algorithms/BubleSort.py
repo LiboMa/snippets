@@ -1,14 +1,26 @@
 #!/usr/bin/env python
 
 import random
+import time
 
-rand_seq = [ random.randint(1,100) for _ in range(10) ]
+rand_seq = [ random.randint(1,10000) for _ in range(10000) ]
 
-#n = len(rand_seq)
-#for i in range(n - 1):
-#    print("OUTER LOOP: %d th" % i)
-#    for j in range(i+ n - 1):
-#        if rand_seq[j] > rand_seq[j+1]:
-#            tmp = rand_seq[j] 
-#            rand_seq[j] = rand_seq[j+1]
-#            rand_seq[j+1] = tmp
+def bubbleSort(seq):
+    now = time.time()
+    n = len(seq)
+    for i in range(n - 1):
+        # print("OUTER : ->", i)
+        for j in range(n - i - 1 ):
+            # check j th of next one who is bigger
+            if rand_seq[j] > rand_seq[j+1]:
+                #print("swap")
+                swap = rand_seq[j]
+                rand_seq[j] = rand_seq[j+1]
+                rand_seq[j+1] = swap
+                
+    end = time.time() - now
+    return seq, end
+
+if __name__ == '__main__':
+    l, t = bubbleSort(rand_seq)
+    print("{} items sorted, time cost: {:.7f}".format(len(l), t))
