@@ -8,10 +8,12 @@ import (
 
 func selectionSort(seq []int) ([]int, time.Duration) {
 	start := time.Now()
-	n := len(seq) - 1
+	n := len(seq)
 	var minIndex int
-	for i := 0; i < (n); i++ {
+	// Outer Loop for looping the whole list by index
+	for i := 0; i < (n - 1); i++ {
 		minIndex = i
+		// Inner Loop for looping the dynamic sub list
 		for j := i + 1; j < n; j++ {
 			if seq[j] < seq[minIndex] {
 				minIndex = j

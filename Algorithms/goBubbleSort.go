@@ -25,6 +25,7 @@ func bubbleSort(seq []int) ([]int, time.Duration, error) {
 	return seq, elaspad, nil
 
 }
+
 func main() {
 
 	seq := []int{}

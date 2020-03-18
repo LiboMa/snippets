@@ -5,12 +5,12 @@ import random
 
 #seq = [2,3,51,23,12,5,100]
 #sorted_seq = []
-rand_seq = [ random.randint(1,10000) for _ in range(10000) ]
+rand_seq = [ random.randint(1,10000) for _ in range(8192) ]
 
 def selectionSort(seq):
     start = time.time()
-    n = len(seq) - 1
-    for i in range(n):
+    n = len(seq)
+    for i in range(n - 1):
         minIndex = i
         #print(seq[minIndex])
         for j in range(i+1, n):
