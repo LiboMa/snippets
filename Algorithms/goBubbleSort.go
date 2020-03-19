@@ -9,8 +9,9 @@ import (
 func bubbleSort(seq []int) ([]int, time.Duration, error) {
 	start := time.Now()
 	n := len(seq)
+	var j int
 	for i := 0; i < (n - 1); i++ {
-		for j := 0; j < (n - 1 - i); j++ {
+		for j = 0; j < (n - 1 - i); j++ {
 
 			// Use ascent sort order
 			if seq[j] > seq[j+1] {
@@ -29,9 +30,9 @@ func bubbleSort(seq []int) ([]int, time.Duration, error) {
 func main() {
 
 	seq := []int{}
-	N := 10000
+	N := 100
 	for i := 0; i < N; i++ {
-		seq = append(seq, rand.Intn(1000))
+		seq = append(seq, rand.Intn(100))
 	}
 
 	s, t, _ := bubbleSort(seq)

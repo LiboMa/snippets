@@ -34,7 +34,7 @@ func main() {
 	seq := []int{}
 	N := 10000
 	for i := 0; i < N; i++ {
-		seq = append(seq, rand.Intn(1000))
+		seq = append(seq, rand.Intn(N))
 	}
 
 	s, t := selectionSort(seq)
