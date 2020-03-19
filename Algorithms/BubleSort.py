@@ -8,7 +8,7 @@ rand_seq = [ random.randint(1,100) for _ in range(100) ]
 def bubbleSort(seq):
     now = time.time()
     n = len(seq)
-    for i in range(n - 1):
+    for i in range(n):
         # print("OUTER : ->", i)
         for j in range( n - i - 1 ):
             # check j th of next one who is bigger
