@@ -19,3 +19,6 @@ Go: time elaspad: 57.267507ms, length: 10000
 `SelectSort` is 4x times faster then `BubbleSort`
 Go is `85x` times faster than Python
 
+
+## reference links
+[Sort Links](https://www.geeksforgeeks.org/selection-sort/)
