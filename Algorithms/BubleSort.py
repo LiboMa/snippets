@@ -3,7 +3,7 @@
 import random
 import time
 
-rand_seq = [ random.randint(1,100) for _ in range(100) ]
+rand_seq = [ random.randint(1,10000) for _ in range(100000) ]
 
 def bubbleSort(seq):
     now = time.time()

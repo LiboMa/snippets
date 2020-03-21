@@ -30,9 +30,9 @@ func bubbleSort(seq []int) ([]int, time.Duration, error) {
 func main() {
 
 	seq := []int{}
-	N := 100
+	N := 100000
 	for i := 0; i < N; i++ {
-		seq = append(seq, rand.Intn(100))
+		seq = append(seq, rand.Intn(N))
 	}
 
 	s, t, _ := bubbleSort(seq)
